@@ -1,0 +1,15 @@
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\bin\Debug\net5.0\MISA.Import.Infrastructure.deps.json
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\bin\Debug\net5.0\MISA.Import.Infrastructure.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\bin\Debug\net5.0\ref\MISA.Import.Infrastructure.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\bin\Debug\net5.0\MISA.Import.Infrastructure.pdb
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\bin\Debug\net5.0\MISA.Import.Core.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\bin\Debug\net5.0\MISA.Import.Core.pdb
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.csprojAssemblyReference.cache
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.AssemblyInfoInputs.cache
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.AssemblyInfo.cs
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.csproj.CoreCompileInputs.cache
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.csproj.CopyComplete
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\ref\MISA.Import.Infrastructure.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.Infrastructure\obj\Debug\net5.0\MISA.Import.Infrastructure.pdb

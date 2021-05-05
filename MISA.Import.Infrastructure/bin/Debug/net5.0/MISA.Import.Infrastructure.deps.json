@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "MISA.Import.Infrastructure/1.0.0": {
+        "dependencies": {
+          "MISA.Import.Core": "1.0.0"
+        },
+        "runtime": {
+          "MISA.Import.Infrastructure.dll": {}
+        }
+      },
+      "MISA.Import.Core/1.0.0": {
+        "runtime": {
+          "MISA.Import.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MISA.Import.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MISA.Import.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
