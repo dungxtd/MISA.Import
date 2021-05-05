@@ -10,3 +10,15 @@ F:\tddung\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.
 F:\tddung\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.dll
 F:\tddung\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\ref\MISA.Import.Core.dll
 F:\tddung\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.pdb
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\bin\Debug\net5.0\MISA.Import.Core.deps.json
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\bin\Debug\net5.0\MISA.Import.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\bin\Debug\net5.0\ref\MISA.Import.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\bin\Debug\net5.0\MISA.Import.Core.pdb
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\ref\MISA.Import.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.Core\obj\Debug\net5.0\MISA.Import.Core.pdb

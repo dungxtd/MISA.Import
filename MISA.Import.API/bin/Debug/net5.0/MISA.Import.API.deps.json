@@ -33,9 +33,11 @@
     ".NETCoreApp,Version=v5.0": {
       "MISA.Import.API/1.0.0": {
         "dependencies": {
+          "Dapper": "2.0.90",
           "EPPlus": "5.6.3",
           "MISA.Import.Core": "1.0.0",
           "MISA.Import.Infrastructure": "1.0.0",
+          "MySqlConnector": "1.3.8",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -328,6 +330,17 @@
           "MISA.Import.API.dll": {}
         }
       },
+      "Dapper/2.0.90": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.90.36046"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
+        }
+      },
       "EPPlus/5.6.3": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Json": "5.0.0",
@@ -424,6 +437,17 @@
       "Microsoft.Win32.SystemEvents/5.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0"
+        }
+      },
+      "MySqlConnector/1.3.8": {
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.3.8.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/MySqlConnector.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -2745,6 +2769,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Dapper/2.0.90": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e4YjOLJptnpwHIbP8HxjaYf7So9lhUC43rvvGMEkH4Q4CiVlm4rOxYDo0HyuHlMQKj0U5Ob/nCMm52TUhTaZQg==",
+      "path": "dapper/2.0.90",
+      "hashPath": "dapper.2.0.90.nupkg.sha512"
+    },
     "EPPlus/5.6.3": {
       "type": "package",
       "serviceable": true,
@@ -2849,6 +2880,13 @@
       "sha512": "sha512-Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
       "path": "microsoft.win32.systemevents/5.0.0",
       "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
+    },
+    "MySqlConnector/1.3.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zxE+MDrpfPLEUvkUR73brSLiWwDtp5yoNmEk5vEj0vzoVJmR2lBJcOPowigbkR305lM2IKgCL8TP1iIC9xSi7A==",
+      "path": "mysqlconnector/1.3.8",
+      "hashPath": "mysqlconnector.1.3.8.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

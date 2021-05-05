@@ -71,23 +71,8 @@ namespace MISA.Import.Core.Entities
         public string Note { get; set; }
 
         ///<summary>
-        ///Ngày tạo
+        ///Tình trạng
         /// </summary>
-        public DateTime? CreatedDate { get; set; }
-
-        ///<summary>
-        ///Tạo bởi
-        /// </summary>
-        public string CreatedBy { get; set; }
-
-        ///<summary>
-        ///Ngày sửa đổi
-        /// </summary>
-        public DateTime ModifiedDate { get; set; }
-
-        ///<summary>
-        ///Sửa bởi
-        /// </summary>
-        public string ModifiedBy { get; set; }
+        public string Status { get; set; }
     }
 }
