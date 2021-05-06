@@ -40,11 +40,19 @@ namespace MISA.Import.API.Controllers
                 return null;
             else return (obj ?? string.Empty).ToString().Trim();
         }
-        private DateTime checkDateTime(Object obj)
+        private Nullable<DateTime> checkDateTime(Object obj)
         {
             if (obj == null)
-                return DateTime.MinValue;
-            else return DateTime.ParseExact((obj ?? string.Empty).ToString().Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                return null;
+            else
+            {
+                String dateTime = (obj ?? string.Empty).ToString().Trim();
+                if (dateTime.Length == 10) return DateTime.ParseExact( dateTime, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                if (dateTime.Length == 7) return DateTime.ParseExact(dateTime, "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                if (dateTime.Length == 4) return DateTime.ParseExact(dateTime, "yyyy", System.Globalization.CultureInfo.InvariantCulture);
+
+            }
+            return null;
         }
 
         private bool CheckCustomerCode(string customerCode)
@@ -104,7 +112,7 @@ namespace MISA.Import.API.Controllers
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
                     var rowCount = worksheet.Dimension.Rows;
 
-                    for (int row = 3; row <= rowCount; row++)
+                    for (int row = 2; row <= rowCount; row++)
                     {
                         list.Add(new Customer
                         {
@@ -128,7 +136,7 @@ namespace MISA.Import.API.Controllers
 
             for (int i = 0; i < list.Count; i++)
             {
-                for (int j = 0; j < i; j++)
+                    for (int j = 0; j < i; j++)
                 {
                     if (list[j].CustomerCode.Equals(list[i].CustomerCode)) list[i].Status += "Mã khách hàng đã trùng với khách hàng khác trong tệp nhập khẩu.";
                     if (list[j].PhoneNumber.Equals(list[i].PhoneNumber)) list[i].Status += "SĐT đã trùng với SĐT của khách hàng khác trong tệp nhập khẩu.";
@@ -142,6 +150,7 @@ namespace MISA.Import.API.Controllers
             {
                 if (list[i].Status == null) list[i].Status = "Hợp lệ.";
             }
+
                 return list;
 
         }
@@ -172,7 +181,7 @@ namespace MISA.Import.API.Controllers
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
                     var rowCount = worksheet.Dimension.Rows;
 
-                    for (int row = 3; row <= rowCount; row++)
+                    for (int row = 2; row <= rowCount; row++)
                     {
                         list.Add(new Customer
                         {
@@ -219,7 +228,7 @@ namespace MISA.Import.API.Controllers
                     
                 }
             }
-            return -1;
+            return 1;
         }
     }
 }

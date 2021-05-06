@@ -13,7 +13,7 @@ namespace MISA.Import.Core.Entities
         ///<summary>
         ///Khoá chính
         /// </summary>
-        public Guid CustomerId { get; set; }
+        public Guid? CustomerId { get; set; }
 
         ///<summary>
         ///Mã khsach hàng
@@ -43,7 +43,7 @@ namespace MISA.Import.Core.Entities
         ///<summary>
         ///Ngày sinh
         /// </summary>
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         ///<summary>
         ///Tên công ty
