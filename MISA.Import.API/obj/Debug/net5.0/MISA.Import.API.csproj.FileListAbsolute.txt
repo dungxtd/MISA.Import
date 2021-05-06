@@ -72,3 +72,5 @@ C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.API\obj\Debug\net5.0\MIS
 C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.API\obj\Debug\net5.0\MISA.Import.API.genruntimeconfig.cache
 C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.API\bin\Debug\net5.0\Dapper.dll
 C:\Users\dungxtd\Desktop\dotnet\MISA.Import\MISA.Import.API\bin\Debug\net5.0\MySqlConnector.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.API\bin\Debug\net5.0\Dapper.dll
+F:\tddung\dotnet\MISA.Import\MISA.Import.API\bin\Debug\net5.0\MySqlConnector.dll

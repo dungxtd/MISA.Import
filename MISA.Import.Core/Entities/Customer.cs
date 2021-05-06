@@ -33,7 +33,7 @@ namespace MISA.Import.Core.Entities
         ///<summary>
         ///Nhóm khách hàng
         /// </summary>
-        public string CustomerGroup { get; set; }
+        public Guid? CustomerGroupId { get; set; }
 
         ///<summary>
         ///Số điện thoại
