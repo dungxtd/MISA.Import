@@ -19,6 +19,7 @@ namespace MISA.Import.API.Controllers
     [ApiController]
     public class ImportController : ControllerBase
     {
+        public static List<Customer> customers = new List<Customer>();
         private String connectionString = "" +
         "Host = 47.241.69.179;" +
         "Port = 3306;" +
@@ -89,40 +90,9 @@ namespace MISA.Import.API.Controllers
             }
         }
 
-        private async void GetDataFromFile(IFormFile formFile, CancellationToken cancellationToken, List<Customer> list)
+        private void GetDataFromFile(List<Customer> list)
         {
-
-            using (var stream = new MemoryStream())
-            {
-                await formFile.CopyToAsync(stream, cancellationToken);
-
-                using (var package = new ExcelPackage(stream))
-                {
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
-                    var rowCount = worksheet.Dimension.Rows;
-
-                    for (int row = 2; row <= rowCount; row++)
-                    {
-                        list.Add(new Customer
-                        {
-                            CustomerCode = checkString(worksheet.Cells[row, 1].Value),
-                            Fullname = checkString(worksheet.Cells[row, 2].Value),
-                            MemberCardCode = checkString(worksheet.Cells[row, 3].Value),
-                            CustomerGroupId = GetCustomerGroupIdByName(Encoding.Default.GetBytes(checkString(worksheet.Cells[row, 4].Value))),
-                            PhoneNumber = checkString(worksheet.Cells[row, 5].Value),
-                            DateOfBirth = checkDateTime(worksheet.Cells[row, 6].Value),
-                            CompanyName = checkString(worksheet.Cells[row, 7].Value),
-                            TaxCode = checkString(worksheet.Cells[row, 8].Value),
-                            Email = checkString(worksheet.Cells[row, 9].Value),
-                            Address = checkString(worksheet.Cells[row, 10].Value),
-                            Note = checkString(worksheet.Cells[row, 11].Value),
-                        });
-                    }
-                }
-            }
-
             //check customer
-
             for (int i = 0; i < list.Count; i++)
             {
                 for (int j = 0; j < i; j++)
@@ -140,8 +110,11 @@ namespace MISA.Import.API.Controllers
                 if (list[i].Status == null) list[i].Status = "Hợp lệ.";
             }
         }
+
+
+
         [HttpPost]
-        public List<Customer> Import(IFormFile formFile, CancellationToken cancellationToken)
+        public async Task<List<Customer>> ImportAsync(IFormFile formFile, CancellationToken cancellationToken)
         {
             if (formFile == null || formFile.Length <= 0)
             {
@@ -152,43 +125,57 @@ namespace MISA.Import.API.Controllers
             {
                 throw new BadRequestException("Not Support file extension");
             }
-            var list = new List<Customer>();
-            GetDataFromFile(formFile, cancellationToken, list);
-            return list;
+            using (var stream = new MemoryStream())
+            {
+                await formFile.CopyToAsync(stream, cancellationToken);
+                using (var package = new ExcelPackage(stream))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                    var rowCount = worksheet.Dimension.Rows;
+
+                    for (int row = 2; row <= rowCount; row++)
+                    {
+                        customers.Add(new Customer
+                        {
+                            CustomerCode = checkString(worksheet.Cells[row, 1].Value),
+                            Fullname = checkString(worksheet.Cells[row, 2].Value),
+                            MemberCardCode = checkString(worksheet.Cells[row, 3].Value),
+                            CustomerGroupId = GetCustomerGroupIdByName(Encoding.Default.GetBytes(checkString(worksheet.Cells[row, 4].Value))),
+                            PhoneNumber = checkString(worksheet.Cells[row, 5].Value),
+                            DateOfBirth = checkDateTime(worksheet.Cells[row, 6].Value),
+                            CompanyName = checkString(worksheet.Cells[row, 7].Value),
+                            TaxCode = checkString(worksheet.Cells[row, 8].Value),
+                            Email = checkString(worksheet.Cells[row, 9].Value),
+                            Address = checkString(worksheet.Cells[row, 10].Value),
+                            Note = checkString(worksheet.Cells[row, 11].Value),
+                        });
+                    }
+                }
+            }
+            GetDataFromFile(customers);
+            return customers;
         }
 
 
-
         [HttpPost("AddToDb")]
-        public int ImportToDb(IFormFile formFile, CancellationToken cancellationToken)
+        public int ImportToDb()
         {
-            if (formFile == null || formFile.Length <= 0)
-            {
-                throw new BadRequestException("formfile is empty");
-            }
-
-            if (!Path.GetExtension(formFile.FileName).Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
-            {
-                throw new BadRequestException("Not Support file extension");
-            }
-
-            var list = new List<Customer>();
-            var rowsAffect = 0;
-            GetDataFromFile(formFile, cancellationToken, list);
-            for (int i = 0; i < list.Count; i++)
+            
+            //var rowsAffect = 0;
+            for (int i = 0; i < customers.Count; i++)
             {
                 DynamicParameters dynamicParameters = new DynamicParameters();
-                if (list[i].Status == "Hợp lệ.")
+                if (customers[i].Status == "Hợp lệ.")
                 {
-                    dynamicParameters.Add("@Customer", list[i]);
+                    dynamicParameters.Add("@Customer", customers[i]);
                     using (dbConnection = new MySqlConnection(connectionString))
                     {
-                         rowsAffect = dbConnection.Execute("InsertCustomer", param: list[i], commandType: CommandType.StoredProcedure);
+                        var rowsAffect = dbConnection.Execute("InsertCustomer", param: customers[i], commandType: CommandType.StoredProcedure);
                         if (rowsAffect != 1) return rowsAffect;
                     }
                 }
             }
-            return rowsAffect;
+            return 1;
         }
     }
 }
