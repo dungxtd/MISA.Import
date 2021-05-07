@@ -74,5 +74,10 @@ namespace MISA.Import.Core.Entities
         ///Tình trạng
         /// </summary>
         public string Status { get; set; }
+
+        ///<summary>
+        ///Mã tình trạng
+        /// </summary>
+        public int StatusCode { get; set; }
     }
 }

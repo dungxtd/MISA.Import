@@ -4771,19 +4771,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tddung\\.nuget\\packages\\": {}
+    "C:\\Users\\dungxtd\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.API\\MISA.Import.API.csproj",
+      "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.API\\MISA.Import.API.csproj",
       "projectName": "MISA.Import.API",
-      "projectPath": "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.API\\MISA.Import.API.csproj",
-      "packagesPath": "C:\\Users\\tddung\\.nuget\\packages\\",
-      "outputPath": "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.API\\obj\\",
+      "projectPath": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.API\\MISA.Import.API.csproj",
+      "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\tddung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dungxtd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4797,11 +4801,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.Core\\MISA.Import.Core.csproj": {
-              "projectPath": "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.Core\\MISA.Import.Core.csproj"
+            "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.Core\\MISA.Import.Core.csproj": {
+              "projectPath": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.Core\\MISA.Import.Core.csproj"
             },
-            "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.Infrastructure\\MISA.Import.Infrastructure.csproj": {
-              "projectPath": "F:\\tddung\\dotnet\\MISA.Import\\MISA.Import.Infrastructure\\MISA.Import.Infrastructure.csproj"
+            "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.Infrastructure\\MISA.Import.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.Import\\MISA.Import.Infrastructure\\MISA.Import.Infrastructure.csproj"
             }
           }
         }

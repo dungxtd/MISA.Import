@@ -49,7 +49,7 @@ namespace MISA.Import.API.Controllers
             {
                 String dateTime = (obj ?? string.Empty).ToString().Trim();
                 if (dateTime.Length == 10) return DateTime.ParseExact( dateTime, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                if (dateTime.Length == 7) return DateTime.ParseExact(dateTime, "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                if (dateTime.Length == 7|| dateTime.Length == 6) return DateTime.ParseExact(dateTime, "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 if (dateTime.Length == 4) return DateTime.ParseExact(dateTime, "yyyy", System.Globalization.CultureInfo.InvariantCulture);
 
             }
@@ -95,19 +95,30 @@ namespace MISA.Import.API.Controllers
             //check customer
             for (int i = 0; i < list.Count; i++)
             {
+                list[i].Status = null;
+                int[] tempError = { 0, 0, 0, 0, 0 };
                 for (int j = 0; j < i; j++)
                 {
-                    if (list[j].CustomerCode.Equals(list[i].CustomerCode)) list[i].Status += "Mã khách hàng đã trùng với khách hàng khác trong tệp nhập khẩu.";
-                    if (list[j].PhoneNumber.Equals(list[i].PhoneNumber)) list[i].Status += "SĐT đã trùng với SĐT của khách hàng khác trong tệp nhập khẩu.";
+                    if (list[j].CustomerCode.Equals(list[i].CustomerCode)) tempError[0] = 1;
+                    if (list[j].PhoneNumber.Equals(list[i].PhoneNumber)) tempError[1] = 1;
                 }
-
-                if (CheckCustomerCode(list[i].CustomerCode)) list[i].Status += "Mã khách hàng đã tồn tại trong hệ thống.";
-                if (CheckPhoneNumber(list[i].CustomerCode)) list[i].Status += "SĐT đã có trong hệ thống.";
-                if (list[i].CustomerGroupId == null) list[i].Status += "Nhóm khách hàng không có trong hệ thống.";
+                if (CheckCustomerCode(list[i].CustomerCode)) tempError[2] = 1;
+                if (CheckPhoneNumber(list[i].CustomerCode)) tempError[3] = 1;
+                if (list[i].CustomerGroupId == null) tempError[4] = 1;
+                if (tempError[0] == 1) list[i].Status += "Mã khách hàng đã trùng với khách hàng khác trong tệp nhập khẩu.";
+                if (tempError[1] == 1) list[i].Status += "SĐT đã trùng với SĐT của khách hàng khác trong tệp nhập khẩu.";
+                if (tempError[2] == 1) list[i].Status += "Mã khách hàng đã tồn tại trong hệ thống.";
+                if (tempError[3] == 1) list[i].Status += "SĐT đã có trong hệ thống.";
+                if (tempError[4] == 1) list[i].Status += "Nhóm khách hàng không có trong hệ thống.";
             }
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].Status == null) list[i].Status = "Hợp lệ.";
+                if (list[i].Status == null)
+                {
+                    list[i].Status = "Hợp lệ.";
+                    list[i].StatusCode = 1;
+                }
+                else list[i].StatusCode = 0;
             }
         }
 
@@ -158,24 +169,32 @@ namespace MISA.Import.API.Controllers
 
 
         [HttpPost("AddToDb")]
-        public int ImportToDb()
+        public ActionResult ImportToDb()
         {
-            
+
             //var rowsAffect = 0;
+            var temp = 0;
             for (int i = 0; i < customers.Count; i++)
             {
                 DynamicParameters dynamicParameters = new DynamicParameters();
-                if (customers[i].Status == "Hợp lệ.")
+                if (customers[i].StatusCode == 1)
                 {
                     dynamicParameters.Add("@Customer", customers[i]);
                     using (dbConnection = new MySqlConnection(connectionString))
                     {
                         var rowsAffect = dbConnection.Execute("InsertCustomer", param: customers[i], commandType: CommandType.StoredProcedure);
-                        if (rowsAffect != 1) return rowsAffect;
+                        if (rowsAffect != 1) return BadRequest("Có lỗi xảy ra vui lòng kiểm tra lại.");
+                        else temp = 1;
                     }
                 }
+                customers[i].Status = null;
             }
-            return 1;
+            if (temp == 1) {
+                temp = 0;
+                customers.Clear();
+                return Ok();
+            } 
+            else return BadRequest("Có lỗi xảy ra vui lòng kiểm tra lại.");
         }
     }
 }
